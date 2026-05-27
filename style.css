@@ -86,17 +86,18 @@ input {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.98rem;
-  font-weight: 800;
+  width: 122px;
+  height: 42px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
-.logo-mark {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, var(--navy), #2b3a4c 58%, var(--ice));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  transform: scale(1.52);
 }
 
 .nav {
@@ -875,6 +876,20 @@ section {
 
 .footer-brand {
   max-width: 520px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  width: 190px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.footer-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .footer-brand p {
