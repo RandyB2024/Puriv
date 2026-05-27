@@ -16,7 +16,7 @@ const productConfig = {
     3: 0.15
   },
   integrations: {
-    payments: ["mollie", "stripe", "paypal", "apple_pay", "google_pay"],
+    payments: ["paypal"],
     analytics: ["tiktok_pixel", "meta_pixel", "microsoft_clarity", "google_analytics"],
     future: ["affiliate_codes", "influencer_dashboard", "subscriptions", "multi_product"]
   },
@@ -106,7 +106,7 @@ document.querySelector(".checkout-button")?.addEventListener("click", () => {
   };
 
   window.dispatchEvent(new CustomEvent("puriv:add-to-cart", { detail: eventPayload }));
-  alert("Je Puriv selectie staat klaar voor checkout.");
+  alert("Je Puriv selectie staat klaar voor betaling via PayPal.");
 });
 
 window.purivStorefront = productConfig;
