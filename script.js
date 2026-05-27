@@ -97,13 +97,12 @@ bundleInputs.forEach((input) => input.addEventListener("change", updatePrice));
 updatePrice();
 
 document.querySelector(".checkout-button")?.addEventListener("click", () => {
-  const color = document.querySelector('input[name="color"]:checked')?.value || "Zwart";
   const bundle = getSelectedBundle();
   const eventPayload = {
     product: "Puriv UV-C waterfles",
     bundle,
     quantity,
-    color
+    color: "Zwart"
   };
 
   window.dispatchEvent(new CustomEvent("puriv:add-to-cart", { detail: eventPayload }));

@@ -97,20 +97,13 @@
           </div>
         </div>
         <div class="hero-visual reveal" aria-label="Puriv productvisual">
-          <div class="bottle-stage">
-            <div class="bottle">
-              <div class="cap">
-                <span class="uv-ring"></span>
-              </div>
-              <div class="neck"></div>
-              <div class="body">
-                <span class="brand-vertical">PURIV</span>
-                <span class="status-dot"></span>
-              </div>
-              <div class="base"></div>
-            </div>
-            <div class="reflection"></div>
-          </div>
+          <figure class="product-photo-frame hero-photo">
+            <img
+              src="assets/images/puriv-hero.webp"
+              alt="Premium zwarte Puriv UV-C waterfles"
+              loading="eager"
+            />
+          </figure>
         </div>
       </section>
 
@@ -222,9 +215,9 @@
           <h2>Ontworpen voor iedere dag.</h2>
         </div>
         <div class="lifestyle-grid">
-          <article class="visual-block tall reveal">
-            <span class="visual-label">Sportschool</span>
-            <div class="visual-scene gym"></div>
+          <article class="visual-block photo-block tall reveal">
+            <img src="assets/images/puriv-lifestyle-desk.webp" alt="Puriv op een moderne werkplek" loading="lazy" />
+            <span class="visual-label">Werkdag</span>
           </article>
           <article class="visual-block reveal">
             <span class="visual-label">Kantoor</span>
@@ -301,6 +294,13 @@
             sport, reizen en dagelijks gebruik.
           </p>
         </div>
+        <figure class="product-photo-frame detail-photo reveal">
+          <img
+            src="assets/images/puriv-cap-detail.webp"
+            alt="Close-up van de Puriv dop met slimme UV-C technologie"
+            loading="lazy"
+          />
+        </figure>
         <div class="quality-grid">
           <article class="quality-card reveal">
             <div class="detail-render steel-render"></div>
@@ -405,10 +405,10 @@
         </div>
         <div class="checkout-card reveal">
           <div class="product-summary">
-            <div class="mini-bottle" aria-hidden="true"></div>
+            <img class="checkout-image" src="assets/images/puriv-product.webp" alt="Zwarte Puriv waterfles" loading="lazy" />
             <div>
               <h3>Puriv UV-C waterfles</h3>
-              <p>Inclusief USB-C kabel en premium verpakking</p>
+              <p>Zwart model, inclusief USB-C kabel en premium verpakking</p>
             </div>
           </div>
 
@@ -419,12 +419,10 @@
             <label><input type="radio" name="bundle" value="3" /> 3 flessen family pack</label>
           </fieldset>
 
-          <fieldset class="option-group">
-            <legend>Kleur</legend>
-            <label><input type="radio" name="color" value="Zwart" checked /> Zwart</label>
-            <label><input type="radio" name="color" value="Wit" /> Wit</label>
-            <label><input type="radio" name="color" value="Zilver" /> Zilver</label>
-          </fieldset>
+          <div class="fixed-option">
+            <span>Kleur</span>
+            <strong>Zwart</strong>
+          </div>
 
           <div class="quantity-row">
             <span>Hoeveelheid</span>
@@ -468,17 +466,50 @@
           </article>
         </div>
       </section>
+
+      <section class="terms" id="voorwaarden">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Voorwaarden</p>
+          <h2>Duidelijke afspraken.</h2>
+          <p>
+            Onderstaande informatie is bedoeld als nette webshopbasis. Vul de definitieve bedrijfs-,
+            betaal- en retourgegevens aan voordat Puriv live gaat.
+          </p>
+        </div>
+        <div class="terms-grid">
+          <article class="terms-card reveal">
+            <h3>Verzending</h3>
+            <p>Bestellingen worden zorgvuldig verwerkt en verzonden naar het opgegeven adres. Levertijden worden bij checkout of orderbevestiging gecommuniceerd.</p>
+          </article>
+          <article class="terms-card reveal">
+            <h3>Retouren</h3>
+            <p>Consumenten kunnen ongebruikte producten binnen de wettelijke bedenktijd retourneren, mits compleet, schoon en in originele staat.</p>
+          </article>
+          <article class="terms-card reveal">
+            <h3>Garantie</h3>
+            <p>Op Puriv geldt de wettelijke garantie. Dit betekent dat het product moet doen wat je er redelijkerwijs van mag verwachten.</p>
+          </article>
+          <article class="terms-card reveal">
+            <h3>Gebruik</h3>
+            <p>Puriv is ontworpen voor dagelijks gebruik. Reinig de fles regelmatig en volg de productinstructies voor de UV-C dop en USB-C aansluiting.</p>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-      <a class="logo" href="#top"><span class="logo-mark"></span>Puriv</a>
+      <div class="footer-brand">
+        <a class="logo" href="#top"><span class="logo-mark"></span>Puriv</a>
+        <p>© 2026 Puriv. Slimme drinkfles voor schoner dagelijks gebruik.</p>
+        <p class="barterweb">Website gerealiseerd en onderhouden door <a href="https://barterweb.nl" target="_blank" rel="noopener">BarterWeb.nl</a>.</p>
+      </div>
       <div class="footer-links">
         <a href="#voordelen">Voordelen</a>
         <a href="#kwaliteit">Design</a>
         <a href="#faq">FAQ</a>
+        <a href="#voorwaarden">Voorwaarden</a>
         <a href="#bestellen">Bestellen</a>
       </div>
-      <p>© 2026 Puriv. Slimme drinkfles voor schoner dagelijks gebruik.</p>
     </footer>
 
     <template id="email-templates">
