@@ -10,6 +10,7 @@ const qtyButtons = document.querySelectorAll("[data-qty]");
 
 const productConfig = {
   basePrice: 69.95,
+  paypalBusinessEmail: "VUL_HIER_JE_PAYPAL_EMAIL_IN",
   bundleDiscounts: {
     1: 0,
     2: 0.1,
@@ -77,12 +78,41 @@ function formatPrice(value) {
 }
 
 function updatePrice() {
+  const total = getCurrentTotal();
+  if (quantityEl) quantityEl.textContent = String(quantity);
+  if (priceEl) priceEl.textContent = formatPrice(total);
+}
+
+function getCurrentTotal() {
   const bundle = getSelectedBundle();
   const discount = productConfig.bundleDiscounts[bundle] || 0;
   const subtotal = productConfig.basePrice * bundle * quantity;
-  const total = subtotal * (1 - discount);
-  if (quantityEl) quantityEl.textContent = String(quantity);
-  if (priceEl) priceEl.textContent = formatPrice(total);
+  return subtotal * (1 - discount);
+}
+
+function buildPayPalUrl() {
+  const bundle = getSelectedBundle();
+  const total = getCurrentTotal();
+  const businessEmail = productConfig.paypalBusinessEmail;
+
+  if (!businessEmail || businessEmail.includes("VUL_HIER")) {
+    return "";
+  }
+
+  const params = new URLSearchParams({
+    cmd: "_xclick",
+    business: businessEmail,
+    item_name: `Puriv UV-C waterfles zwart - bundel ${bundle}`,
+    amount: total.toFixed(2),
+    currency_code: "EUR",
+    quantity: "1",
+    no_shipping: "2",
+    no_note: "1",
+    return: `${window.location.origin}${window.location.pathname}#bestellen`,
+    cancel_return: `${window.location.origin}${window.location.pathname}#bestellen`
+  });
+
+  return `https://www.paypal.com/cgi-bin/webscr?${params.toString()}`;
 }
 
 qtyButtons.forEach((button) => {
@@ -106,7 +136,12 @@ document.querySelector(".checkout-button")?.addEventListener("click", () => {
   };
 
   window.dispatchEvent(new CustomEvent("puriv:add-to-cart", { detail: eventPayload }));
-  alert("Je Puriv selectie staat klaar voor betaling via PayPal.");
+  const paypalUrl = buildPayPalUrl();
+  if (!paypalUrl) {
+    alert("Vul in script.js eerst je PayPal e-mailadres in bij paypalBusinessEmail.");
+    return;
+  }
+  window.location.href = paypalUrl;
 });
 
 window.purivStorefront = productConfig;
